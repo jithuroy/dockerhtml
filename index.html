@@ -1,0 +1,1599 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bengaluru Cricket Grounds | BookNow</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f7f5;
+      color: #17221b;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    nav {
+      height: 72px;
+      background: #071b12;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      color: #54e38e;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #54e38e;
+    }
+
+    .login-btn {
+      background: #54e38e;
+      color: #062014;
+      padding: 11px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 500px;
+      background:
+        linear-gradient(rgba(0, 30, 17, 0.78), rgba(0, 25, 15, 0.82)),
+        url("https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1800&q=80");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      color: white;
+    }
+
+    .hero-content .badge {
+      display: inline-block;
+      background: rgba(84, 227, 142, 0.15);
+      border: 1px solid rgba(84, 227, 142, 0.5);
+      color: #72f5a3;
+      padding: 8px 16px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #54e38e;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #d9e5de;
+      margin-bottom: 35px;
+    }
+
+    /* ================= SEARCH BOX ================= */
+
+    .search-box {
+      background: white;
+      padding: 12px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 850px;
+      margin: auto;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    }
+
+    .search-box input,
+    .search-box select {
+      border: none;
+      outline: none;
+      padding: 16px;
+      flex: 1;
+      font-size: 15px;
+      background: white;
+    }
+
+    .search-button {
+      border: none;
+      background: #16a05d;
+      color: white;
+      padding: 16px 25px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .search-button:hover {
+      background: #0d8048;
+      transform: translateY(-2px);
+    }
+
+    /* ================= SECTION ================= */
+
+    .section {
+      padding: 70px 7%;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+    }
+
+    .section-heading p {
+      color: #718078;
+      margin-top: 7px;
+    }
+
+    .view-all {
+      color: #159c59;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* ================= FILTERS ================= */
+
+    .filters {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .filter {
+      padding: 10px 18px;
+      background: white;
+      border: 1px solid #dce5df;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter:hover,
+    .filter.active {
+      background: #0f9d58;
+      color: white;
+      border-color: #0f9d58;
+    }
+
+    /* ================= CARDS ================= */
+
+    .grounds {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+      transition: 0.35s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+    }
+
+    .card-img {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .card:hover .card-img img {
+      transform: scale(1.08);
+    }
+
+    .favorite {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: white;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .rating {
+      position: absolute;
+      left: 15px;
+      bottom: 15px;
+      background: white;
+      padding: 7px 11px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .location {
+      color: #718078;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+
+    .feature {
+      background: #eef8f2;
+      color: #147643;
+      padding: 6px 9px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .price small {
+      font-size: 12px;
+      color: #89948e;
+      font-weight: normal;
+    }
+
+    .book-btn {
+      background: #071b12;
+      color: white;
+      border: none;
+      padding: 11px 18px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .book-btn:hover {
+      background: #16a05d;
+    }
+
+    /* ================= WHY US ================= */
+
+    .why {
+      background: #071b12;
+      color: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .why-card {
+      padding: 30px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .why-icon {
+      font-size: 35px;
+      margin-bottom: 18px;
+    }
+
+    .why-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      color: #b8c8bf;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #04110b;
+      color: white;
+      padding: 45px 7%;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      margin-bottom: 18px;
+    }
+
+    footer p,
+    footer a {
+      color: #a9b7af;
+      text-decoration: none;
+      line-height: 2;
+      font-size: 14px;
+      display: block;
+    }
+
+    footer a:hover {
+      color: #54e38e;
+    }
+
+    .copyright {
+      border-top: 1px solid #183024;
+      margin-top: 35px;
+      padding-top: 20px;
+      color: #7c8d83;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* ================= MODAL ================= */
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 520px;
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      position: relative;
+      animation: popup 0.25s ease;
+    }
+
+    @keyframes popup {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .close {
+      position: absolute;
+      right: 20px;
+      top: 18px;
+      border: none;
+      background: #f0f3f1;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .modal-box h2 {
+      margin-bottom: 7px;
+    }
+
+    .selected-ground {
+      color: #159c59;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d9e2dc;
+      border-radius: 9px;
+      outline: none;
+    }
+
+    .slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .slot {
+      padding: 10px;
+      border: 1px solid #d8e1db;
+      background: white;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .slot.selected {
+      background: #159c59;
+      color: white;
+      border-color: #159c59;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      margin: 22px 0;
+      padding-top: 15px;
+      border-top: 1px solid #e1e7e3;
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .confirm {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #071b12;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .confirm:hover {
+      background: #159c59;
+    }
+
+    /* ================= SUCCESS ================= */
+
+    .success {
+      text-align: center;
+      display: none;
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      background: #dcf8e7;
+      color: #159c59;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      margin: 0 auto 20px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width: 900px) {
+
+      .grounds {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+    }
+
+    @media(max-width: 650px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .search-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .grounds {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .view-all {
+        display: inline-block;
+        margin-top: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <nav>
+
+    <div class="logo">
+      🏏 Book<span>MyGround</span>
+    </div>
+
+    <ul>
+      <li><a href="#grounds">Grounds</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+
+    <a href="#grounds" class="login-btn">Book Now</a>
+
+  </nav>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="badge">
+        🏏 Bengaluru's Cricket Ground Booking Platform
+      </div>
+
+      <h1>
+        Find. Book. <span>Play.</span>
+      </h1>
+
+      <p>
+        Discover the best cricket grounds, turfs and stadium-quality
+        facilities across Bengaluru.
+      </p>
+
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search ground or location..."
+        >
+
+        <select id="areaFilter">
+          <option value="all">All Bengaluru</option>
+          <option value="koramangala">Koramangala</option>
+          <option value="whitefield">Whitefield</option>
+          <option value="indiranagar">Indiranagar</option>
+          <option value="hsr">HSR Layout</option>
+          <option value="yelahanka">Yelahanka</option>
+        </select>
+
+        <input
+          type="date"
+          id="searchDate"
+        >
+
+        <button class="search-button" onclick="searchGrounds()">
+          Search
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= GROUNDS ================= -->
+
+  <section class="section" id="grounds">
+
+    <div class="section-heading">
+
+      <div>
+        <h2>Popular Cricket Grounds</h2>
+        <p>Top-rated places to play in Bengaluru</p>
+      </div>
+
+      <a href="#" class="view-all">View All →</a>
+
+    </div>
+
+
+    <div class="filters">
+
+      <button class="filter active" onclick="filterGrounds('all', this)">
+        All
+      </button>
+
+      <button class="filter" onclick="filterGrounds('turf', this)">
+        Turf
+      </button>
+
+      <button class="filter" onclick="filterGrounds('stadium', this)">
+        Stadium
+      </button>
+
+      <button class="filter" onclick="filterGrounds('night', this)">
+        Night Play
+      </button>
+
+      <button class="filter" onclick="filterGrounds('floodlights', this)">
+        Floodlights
+      </button>
+
+    </div>
+
+
+    <div class="grounds" id="groundsContainer">
+
+      <!-- GROUND 1 -->
+
+      <div class="card"
+           data-name="greenfield cricket arena"
+           data-location="koramangala"
+           data-category="turf night floodlights">
+
+        <div class="card-img">
+
+          <img
+            src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=900&q=80"
+            alt="Greenfield Cricket Arena"
+          >
+
+          <button class="favorite" onclick="favorite(this)">
+            ♡
+          </button>
+
+          <div class="rating">
+            ⭐ 4.8
+          </div>
+
+        </div>
+
+        <div class="card-content">
+
+          <h3>Greenfield Cricket Arena</h3>
+
+          <div class="location">
+            📍 Koramangala, Bengaluru
+          </div>
+
+          <div class="features">
+            <span class="feature">Turf</span>
+            <span class="feature">Floodlights</span>
+            <span class="feature">Parking</span>
+          </div>
+
+          <div class="card-bottom">
+
+            <div class="price">
+              ₹1,200 <small>/ hour</small>
+            </div>
+
+            <button
+              class="book-btn"
+              onclick="openBooking('Greenfield Cricket Arena',1200)"
+            >
+              Book
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- GROUND 2 -->
+
+      <div class="card"
+           data-name="whitefield cricket hub"
+           data-location="whitefield"
+           data-category="stadium night floodlights">
+
+        <div class="card-img">
+
+          <img
+            src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=900&q=80"
+            alt="Whitefield Cricket Hub"
+          >
+
+          <button class="favorite" onclick="favorite(this)">
+            ♡
+          </button>
+
+          <div class="rating">
+            ⭐ 4.7
+          </div>
+
+        </div>
+
+        <div class="card-content">
+
+          <h3>Whitefield Cricket Hub</h3>
+
+          <div class="location">
+            📍 Whitefield, Bengaluru
+          </div>
+
+          <div class="features">
+            <span class="feature">Stadium</span>
+            <span class="feature">Floodlights</span>
+            <span class="feature">Changing Room</span>
+          </div>
+
+          <div class="card-bottom">
+
+            <div class="price">
+              ₹1,500 <small>/ hour</small>
+            </div>
+
+            <button
+              class="book-btn"
+              onclick="openBooking('Whitefield Cricket Hub',1500)"
+            >
+              Book
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- GROUND 3 -->
+
+      <div class="card"
+           data-name="indiranagar cricket club"
+           data-location="indiranagar"
+           data-category="turf floodlights">
+
+        <div class="card-img">
+
+          <img
+            src="https://images.unsplash.com/photo-1562077772-3bd90403f7f0?auto=format&fit=crop&w=900&q=80"
+            alt="Indiranagar Cricket Club"
+          >
+
+          <button class="favorite" onclick="favorite(this)">
+            ♡
+          </button>
+
+          <div class="rating">
+            ⭐ 4.9
+          </div>
+
+        </div>
+
+        <div class="card-content">
+
+          <h3>Indiranagar Cricket Club</h3>
+
+          <div class="location">
+            📍 Indiranagar, Bengaluru
+          </div>
+
+          <div class="features">
+            <span class="feature">Premium Turf</span>
+            <span class="feature">Floodlights</span>
+            <span class="feature">Parking</span>
+          </div>
+
+          <div class="card-bottom">
+
+            <div class="price">
+              ₹1,800 <small>/ hour</small>
+            </div>
+
+            <button
+              class="book-btn"
+              onclick="openBooking('Indiranagar Cricket Club',1800)"
+            >
+              Book
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- GROUND 4 -->
+
+      <div class="card"
+           data-name="hsr cricket park"
+           data-location="hsr"
+           data-category="turf night">
+
+        <div class="card-img">
+
+          <img
+            src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=900&q=80"
+            alt="HSR Cricket Park"
+          >
+
+          <button class="favorite" onclick="favorite(this)">
+            ♡
+          </button>
+
+          <div class="rating">
+            ⭐ 4.6
+          </div>
+
+        </div>
+
+        <div class="card-content">
+
+          <h3>HSR Cricket Park</h3>
+
+          <div class="location">
+            📍 HSR Layout, Bengaluru
+          </div>
+
+          <div class="features">
+            <span class="feature">Turf</span>
+            <span class="feature">Night Play</span>
+            <span class="feature">Cafeteria</span>
+          </div>
+
+          <div class="card-bottom">
+
+            <div class="price">
+              ₹1,000 <small>/ hour</small>
+            </div>
+
+            <button
+              class="book-btn"
+              onclick="openBooking('HSR Cricket Park',1000)"
+            >
+              Book
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- GROUND 5 -->
+
+      <div class="card"
+           data-name="yelahanka cricket stadium"
+           data-location="yelahanka"
+           data-category="stadium floodlights">
+
+        <div class="card-img">
+
+          <img
+            src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=80"
+            alt="Yelahanka Cricket Stadium"
+          >
+
+          <button class="favorite" onclick="favorite(this)">
+            ♡
+          </button>
+
+          <div class="rating">
+            ⭐ 4.8
+          </div>
+
+        </div>
+
+        <div class="card-content">
+
+          <h3>Yelahanka Cricket Stadium</h3>
+
+          <div class="location">
+            📍 Yelahanka, Bengaluru
+          </div>
+
+          <div class="features">
+            <span class="feature">Stadium</span>
+            <span class="feature">Floodlights</span>
+            <span class="feature">Dressing Room</span>
+          </div>
+
+          <div class="card-bottom">
+
+            <div class="price">
+              ₹1,600 <small>/ hour</small>
+            </div>
+
+            <button
+              class="book-btn"
+              onclick="openBooking('Yelahanka Cricket Stadium',1600)"
+            >
+              Book
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- GROUND 6 -->
+
+      <div class="card"
+           data-name="bengaluru champions ground"
+           data-location="koramangala"
+           data-category="turf night">
+
+        <div class="card-img">
+
+          <img
+            src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=900&q=80"
+            alt="Bengaluru Champions Ground"
+          >
+
+          <button class="favorite" onclick="favorite(this)">
+            ♡
+          </button>
+
+          <div class="rating">
+            ⭐ 4.7
+          </div>
+
+        </div>
+
+        <div class="card-content">
+
+          <h3>Bengaluru Champions Ground</h3>
+
+          <div class="location">
+            📍 Koramangala, Bengaluru
+          </div>
+
+          <div class="features">
+            <span class="feature">Turf</span>
+            <span class="feature">Night Play</span>
+            <span class="feature">Parking</span>
+          </div>
+
+          <div class="card-bottom">
+
+            <div class="price">
+              ₹1,100 <small>/ hour</small>
+            </div>
+
+            <button
+              class="book-btn"
+              onclick="openBooking('Bengaluru Champions Ground',1100)"
+            >
+              Book
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= WHY US ================= -->
+
+  <section class="section why" id="why">
+
+    <div class="section-heading">
+
+      <div>
+        <h2>Why Book With Us?</h2>
+        <p style="color:#a9b7af">
+          Everything you need for a great cricket session.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Instant Booking</h3>
+        <p>
+          Check availability and reserve your ground in seconds.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Best Prices</h3>
+        <p>
+          Compare different grounds and choose the best price.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">⭐</div>
+        <h3>Verified Grounds</h3>
+        <p>
+          Discover highly-rated cricket grounds and turfs.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">🔒</div>
+        <h3>Secure Booking</h3>
+        <p>
+          Your booking details are protected with secure checkout.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer id="footer">
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h3>🏏 BookMyGround</h3>
+
+        <p>
+          Bengaluru's simple and convenient cricket
+          ground booking platform.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3>Explore</h3>
+
+        <a href="#grounds">Cricket Grounds</a>
+        <a href="#">Turf Grounds</a>
+        <a href="#">Stadiums</a>
+        <a href="#">Night Cricket</a>
+
+      </div>
+
+      <div>
+
+        <h3>Locations</h3>
+
+        <a href="#">Koramangala</a>
+        <a href="#">Whitefield</a>
+        <a href="#">Indiranagar</a>
+        <a href="#">HSR Layout</a>
+
+      </div>
+
+      <div>
+
+        <h3>Support</h3>
+
+        <a href="#">Help Center</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Cancellation</a>
+        <a href="#">Terms</a>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 BookMyGround Bengaluru. All rights reserved.
+    </div>
+
+  </footer>
+
+
+  <!-- ================= BOOKING MODAL ================= -->
+
+  <div class="modal" id="bookingModal">
+
+    <div class="modal-box">
+
+      <button class="close" onclick="closeBooking()">
+        ×
+      </button>
+
+      <div id="bookingForm">
+
+        <h2>Book Your Ground 🏏</h2>
+
+        <p class="selected-ground" id="selectedGround">
+          Ground
+        </p>
+
+        <div class="form-group">
+
+          <label>Select Date</label>
+
+          <input
+            type="date"
+            id="bookingDate"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>Select Time Slot</label>
+
+          <div class="slots">
+
+            <button class="slot" onclick="selectSlot(this)">
+              6:00 AM
+            </button>
+
+            <button class="slot" onclick="selectSlot(this)">
+              7:00 AM
+            </button>
+
+            <button class="slot" onclick="selectSlot(this)">
+              8:00 AM
+            </button>
+
+            <button class="slot" onclick="selectSlot(this)">
+              5:00 PM
+            </button>
+
+            <button class="slot" onclick="selectSlot(this)">
+              6:00 PM
+            </button>
+
+            <button class="slot" onclick="selectSlot(this)">
+              7:00 PM
+            </button>
+
+            <button class="slot" onclick="selectSlot(this)">
+              8:00 PM
+            </button>
+
+            <button class="slot" onclick="selectSlot(this)">
+              9:00 PM
+            </button>
+
+            <button class="slot" onclick="selectSlot(this)">
+              10:00 PM
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>Your Name</label>
+
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Enter your name"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>Mobile Number</label>
+
+          <input
+            type="tel"
+            id="customerPhone"
+            placeholder="Enter mobile number"
+          >
+
+        </div>
+
+
+        <div class="total">
+
+          <span>Total</span>
+
+          <span id="totalPrice">
+            ₹0
+          </span>
+
+        </div>
+
+
+        <button
+          class="confirm"
+          onclick="confirmBooking()"
+        >
+          Confirm Booking
+        </button>
+
+      </div>
+
+
+      <div class="success" id="successMessage">
+
+        <div class="success-icon">
+          ✓
+        </div>
+
+        <h2>Booking Confirmed!</h2>
+
+        <p style="margin-top:10px;color:#68766e;">
+          Your cricket ground has been successfully booked.
+        </p>
+
+        <p
+          id="bookingDetails"
+          style="margin-top:15px;font-weight:bold;"
+        ></p>
+
+        <button
+          class="confirm"
+          style="margin-top:25px;"
+          onclick="closeBooking()"
+        >
+          Done
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    let selectedPrice = 0;
+    let selectedGroundName = "";
+    let selectedSlotValue = "";
+
+
+    /* OPEN BOOKING */
+
+    function openBooking(ground, price) {
+
+      selectedGroundName = ground;
+      selectedPrice = price;
+
+      document.getElementById("selectedGround").innerText =
+        ground + " • ₹" + price + " / hour";
+
+      document.getElementById("totalPrice").innerText =
+        "₹" + price;
+
+      document.getElementById("bookingModal").classList.add("show");
+
+      document.getElementById("bookingDate").value =
+        new Date().toISOString().split("T")[0];
+
+    }
+
+
+    /* CLOSE BOOKING */
+
+    function closeBooking() {
+
+      document.getElementById("bookingModal")
+        .classList.remove("show");
+
+      document.getElementById("bookingForm").style.display =
+        "block";
+
+      document.getElementById("successMessage").style.display =
+        "none";
+
+      document.querySelectorAll(".slot").forEach(slot => {
+        slot.classList.remove("selected");
+      });
+
+      selectedSlotValue = "";
+
+    }
+
+
+    /* SELECT TIME SLOT */
+
+    function selectSlot(element) {
+
+      document.querySelectorAll(".slot").forEach(slot => {
+        slot.classList.remove("selected");
+      });
+
+      element.classList.add("selected");
+
+      selectedSlotValue = element.innerText;
+
+    }
+
+
+    /* CONFIRM BOOKING */
+
+    function confirmBooking() {
+
+      const name =
+        document.getElementById("customerName").value.trim();
+
+      const phone =
+        document.getElementById("customerPhone").value.trim();
+
+      const date =
+        document.getElementById("bookingDate").value;
+
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
+
+      if (!phone) {
+        alert("Please enter your mobile number.");
+        return;
+      }
+
+      if (!date) {
+        alert("Please select a date.");
+        return;
+      }
+
+      if (!selectedSlotValue) {
+        alert("Please select a time slot.");
+        return;
+      }
+
+      document.getElementById("bookingForm").style.display =
+        "none";
+
+      document.getElementById("successMessage").style.display =
+        "block";
+
+      document.getElementById("bookingDetails").innerText =
+        selectedGroundName +
+        " • " +
+        date +
+        " • " +
+        selectedSlotValue +
+        " • ₹" +
+        selectedPrice;
+
+    }
+
+
+    /* FAVORITE */
+
+    function favorite(button) {
+
+      if (button.innerText === "♡") {
+        button.innerText = "♥";
+        button.style.color = "#e63946";
+      } else {
+        button.innerText = "♡";
+        button.style.color = "black";
+      }
+
+    }
+
+
+    /* FILTER */
+
+    function filterGrounds(category, button) {
+
+      document.querySelectorAll(".filter").forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      const cards =
+        document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+
+        if (category === "all") {
+          card.style.display = "block";
+          return;
+        }
+
+        const categories =
+          card.dataset.category;
+
+        if (categories.includes(category)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+
+      });
+
+    }
+
+
+    /* SEARCH */
+
+    function searchGrounds() {
+
+      const search =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+      const location =
+        document.getElementById("areaFilter").value;
+
+      const cards =
+        document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+
+        const name =
+          card.dataset.name;
+
+        const cardLocation =
+          card.dataset.location;
+
+        const nameMatch =
+          name.includes(search);
+
+        const locationMatch =
+          location === "all" ||
+          cardLocation === location;
+
+        if (nameMatch && locationMatch) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+
+      });
+
+      document.getElementById("grounds")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    /* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+    document.getElementById("bookingModal")
+      .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+          closeBooking();
+        }
+
+      });
+
+
+    /* SET MINIMUM DATE */
+
+    const today =
+      new Date().toISOString().split("T")[0];
+
+    document.getElementById("searchDate").min = today;
+    document.getElementById("bookingDate").min = today;
+
+  </script>
+
+</body>
+</html>
+```
